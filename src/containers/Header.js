@@ -13,6 +13,14 @@ import {
 import CIcon from "@coreui/icons-react";
 import { Redirect } from "react-router-dom";
 import { signOut } from "../redux/auth";
+import algoliasearch from "algoliasearch/lite";
+import {
+  InstantSearch,
+  SearchBox,
+  Hits,
+  connectStateResults,
+  Configure,
+} from "react-instantsearch-dom";
 
 // routes config
 import routes from "../routes";
@@ -40,6 +48,27 @@ const HeaderDropdown = () => {
     </CDropdown>
   );
 };
+const searchClient = algoliasearch(
+  "V4PX9214FI",
+  "77084fa15006303b1d47fe58dcedb412"
+);
+
+const Hit = ({ hit }) => (
+  <>
+    <div className="card">
+      <div className="card-rating">Title: {hit.title}</div>
+      <div className="card-genre">
+        {" "}
+        <span>{hit.country}</span>{" "}
+      </div>
+      {/* </div> */}
+    </div>
+  </>
+);
+
+const Results = connectStateResults(({ searchState }) =>
+  searchState && searchState.query ? <Hits hitComponent={Hit} /> : <></>
+);
 
 const Header = () => {
   return (
@@ -50,7 +79,14 @@ const Header = () => {
 
       <CHeaderNav className="p-2 flex-grow-1">
         <CHeaderNavItem className="px-3 flex-grow-1">
-          {/* <Search></Search> */}
+          <InstantSearch indexName="movies" searchClient={searchClient}>
+            <Configure hitsPerPage={8} />
+            <SearchBox
+              className="search-bar"
+              translations={{ placeholder: "Search for Movies" }}
+            />
+            <Results />
+          </InstantSearch>
         </CHeaderNavItem>
       </CHeaderNav>
 
