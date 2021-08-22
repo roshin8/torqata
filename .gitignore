@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 fbConfig.js
+*.Identifier
+firestore_json_importer.js
+movies.json
 
 # testing
 /coverage
