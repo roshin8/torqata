@@ -3,6 +3,11 @@ steps:
 - name: gcr.io/cloud-builders/npm
   args: [ install ]
 
+
+- name: gcr.io/cloud-builders/npm
+  args: [ run, build, --prod ]
+
+  
 - name: node:10.15.1
   entrypoint: npm
   args: ["run", "create-env"]
@@ -10,9 +15,6 @@ steps:
     - 'MY_SECRET_KEY=${_MY_SECRET_KEY}'
     - 'APP_ID=${_APP_ID}'
     - 'SENDER_ID=${_SENDER_ID}'
-
-- name: gcr.io/cloud-builders/npm
-  args: [ run, build, --prod ]
 
 - name: gcr.io/cloud-builders/gcloud
   args: [ app, deploy ]
