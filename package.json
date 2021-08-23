@@ -19,7 +19,6 @@
     "algoliasearch": "^4.10.3",
     "classnames": "^2.2.6",
     "core-js": "^3.6.5",
-    "dotenv": "^10.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "firebase": "^8.10.0",
@@ -73,7 +72,7 @@
     ]
   },
   "engines": {
-    "node": ">=8.16",
+    "node": ">=10.0",
     "npm": ">=6"
   }
 }
