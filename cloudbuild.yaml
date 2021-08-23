@@ -4,6 +4,13 @@ steps:
   args: [ install ]
 
 - name: gcr.io/cloud-builders/npm
+  args: ["run", "create-env"]
+  env:
+    - 'MY_SECRET_KEY=${_MY_SECRET_KEY}'
+    - 'APP_ID=${_APP_ID}'
+    - 'SENDER_ID=${_SENDER_ID}'
+
+- name: gcr.io/cloud-builders/npm
   args: [ run, build, --prod ]
 
 - name: gcr.io/cloud-builders/gcloud
