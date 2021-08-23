@@ -45,3 +45,6 @@ This app is built using React + Redux
 - Table of data with Filter, sorting, and pagination. Full text search implemented using Algolia
 - Basic graphs 
 
+
+## Deployed app
+https://torqata-dashboard.uc.r.appspot.com/#/login
