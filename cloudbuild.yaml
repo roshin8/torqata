@@ -3,7 +3,7 @@ steps:
 - name: gcr.io/cloud-builders/npm
   args: [ install ]
 
-- name: gcr.io/cloud-builders/npm
+- name: node:10.15.1
   args: ["run", "create-env"]
   env:
     - 'MY_SECRET_KEY=${_MY_SECRET_KEY}'
