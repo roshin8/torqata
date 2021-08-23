@@ -47,4 +47,4 @@ This app is built using React + Redux
 
 
 ## Deployed app
-https://torqata-dashboard.uc.r.appspot.com/#/login
+https://torqata-dashboard.uc.r.appspot.com/
